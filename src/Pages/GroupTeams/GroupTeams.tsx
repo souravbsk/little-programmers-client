@@ -64,10 +64,9 @@ const GroupTeams = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, Change it!",
     }).then((result) => {
       if (result.isConfirmed) {
-
 
         fetch(`https://little-programmers-server.vercel.app/group-user-role/${id}?email=${email}`, {
         method: "PUT",
