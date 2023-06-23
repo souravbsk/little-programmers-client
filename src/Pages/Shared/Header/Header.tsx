@@ -61,7 +61,7 @@ const Header = () => {
             </Link>
           </li>
           {
-            user && isAdmin && <li className="mx-5">
+            isAdmin && <li className="mx-5">
             <Link className="font-medium" to="/manage-user">
               Manage User
             </Link>

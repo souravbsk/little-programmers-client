@@ -7,7 +7,7 @@ const ManageUser = () => {
     const [users,setUsers] = useState([]);
     const [reFetch,setReFetch] = useState(true)
     useEffect(() => {
-        fetch("http://localhost:5000/users")
+        fetch("https://little-programmers-server.vercel.app/users")
         .then(res => res.json())
         .then(data => {
             setUsers(data);
@@ -27,7 +27,7 @@ const ManageUser = () => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/users/admin/${id}`,{
+                fetch(`https://little-programmers-server.vercel.app/users/admin/${id}`,{
                     method:"PUT",
                     headers:{
                         'content-type':"application/json"
@@ -69,8 +69,8 @@ const ManageUser = () => {
     <tbody>
    
       {
-users.map(user => <tr>
-    <td>
+users.map((user,i) => <tr>
+    <td key={i}>
       <div className="flex items-center space-x-3">
         <div className="avatar">
           <div className="mask mask-squircle w-12 h-12">

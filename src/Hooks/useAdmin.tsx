@@ -2,6 +2,7 @@ import React,{useContext,useState,useEffect} from 'react';
 import { AuthContext } from '../providers/AuthProviders';
 const useAdmin = () => {
     const {user} = useContext(AuthContext)
+    const [adminLoading,setLoading] = useState(true)
 
     const [isAdmin,setAdmin] = useState(false)
     useEffect(() => {
@@ -9,10 +10,11 @@ const useAdmin = () => {
         .then(res => res.json())
         .then(data => {
             setAdmin(data?.admin);
+            setLoading(false)
         })
     },[user])
 
-    return [isAdmin,setAdmin]
+    return [isAdmin,setAdmin,adminLoading]
 };
 
 export default useAdmin;
