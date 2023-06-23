@@ -66,7 +66,10 @@ const GroupTeams = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      fetch(`https://little-programmers-server.vercel.app/group-user-role/${id}?email=${email}`, {
+      if (result.isConfirmed) {
+
+
+        fetch(`https://little-programmers-server.vercel.app/group-user-role/${id}?email=${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -77,15 +80,17 @@ const GroupTeams = () => {
         .then((data) => {
           if (data.modifiedCount > 0) {
             setFetch(!reFetch);
-            if (result.isConfirmed) {
-              Swal.fire(
-                "success!",
-                "user role changed successfully",
-                "success"
-              );
-            }
+            Swal.fire(
+              "success!",
+              "user role changed successfully",
+              "success"
+            );
           }
         });
+
+      
+      }
+      
     });
   };
  // @ts-ignore 
