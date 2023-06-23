@@ -4,7 +4,7 @@ import logoPic from "../../../assets/nav/logopic.png";
 import logo from "../../../assets/nav/logo.png";
 import { AuthContext } from "../../../providers/AuthProviders";
 import { ReFetchContext } from "../../../providers/RefetchProvider";
-import { FaBars, FaBarsStaggered } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 const Header = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const {dataRefetch,setDataRefetch} = useContext(ReFetchContext);

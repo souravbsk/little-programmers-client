@@ -35,6 +35,7 @@ const AuthProviders = ({children} : any) => {
   //update display
   const updateUser = (currentUser: any, image: string, name: string): Promise<UserCredential> => {
     setLoading(true)
+    //@ts-ignore
     return updateProfile(currentUser, {
       photoURL: image,
       displayName: name
