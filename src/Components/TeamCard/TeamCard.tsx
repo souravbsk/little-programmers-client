@@ -17,7 +17,7 @@ type TeamCardProps = {
 const TeamCard = ({ team, handleRemoveGroup }: TeamCardProps) => {
   return (
     <Link to={`/group/${team._id}`}>
-      <div className="card border h-auto md:h-96 border-[#4C54F8]">
+      <div className="card border border-[#4C54F8]">
         <div className="card-body ">
         <div>
         <div className="avatar online">

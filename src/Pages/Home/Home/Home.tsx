@@ -38,11 +38,11 @@ const Home = () => {
           </p>
         </div>
         <div>
- 
 
+    {/* @ts-ignore */}
         <label disabled={!isAdmin} htmlFor="my_modal_6" className="btn btn-outline text-blue-600 font-bold border-blue-600 "><FiPlus></FiPlus> Create a team</label>
 
-
+ 
     
       
         </div>

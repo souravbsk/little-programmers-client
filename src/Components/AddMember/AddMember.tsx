@@ -17,7 +17,7 @@ type userProps = {
 
 const AddMember = (props: userProps) => {
   const { reFetch, setFetch,selectData } = props;
-  const {dataRefetch, setDataRefetch} = useContext(ReFetchContext)
+  const {dataRefetch, setDataRefetch}  = useContext(ReFetchContext)
   const {id} = useParams();
   console.log(id);
 const [result,setResult] = useState([])
@@ -29,7 +29,7 @@ const handleaddMember = (e: any) => {
   const form = e.target;
   const memberTitle = form.title.value;
   const memberRole = form.role.value;
-  const memberEmail = result[0]?.email;
+  const memberEmail = (result[0] as { email?: string })?.email;
   const newMember =  {memberTitle,memberRole,memberEmail};
 
   fetch(`https://little-programmers-server.vercel.app/groups/${id}`,{
@@ -92,7 +92,7 @@ const handleaddMember = (e: any) => {
               </label>
               <select name="role"  className="select w-full">
                 {
-                  selectData?.roles?.map((role,i) => <option key={i} value={role}>{role}</option>)
+                  selectData?.roles?.map((role : any,i : any) => <option key={i} value={role}>{role}</option>)
                 }
               </select>
             </div>

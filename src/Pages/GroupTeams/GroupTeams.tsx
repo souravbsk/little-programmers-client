@@ -88,7 +88,7 @@ const GroupTeams = () => {
         });
     });
   };
-
+ // @ts-ignore 
   const allUserImage = teamMember?.userResult?.map((user) => user?.image);
 
   console.log(isAdmin);
@@ -96,7 +96,9 @@ const GroupTeams = () => {
     <div className="container">
       <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between">
         <div>
+          
           <h1 className="text-2xl md:text-3xl font-bold">
+             {/* @ts-ignore */}
             Team ({teamMember?.groupResult?.teamName})
           </h1>
           <div className="mt-5">
@@ -104,6 +106,7 @@ const GroupTeams = () => {
               onClick={() => setStatus("active")}
               className="btn btn-outline text-blue-600 mr-5 font-medium  border-blue-600 "
             >
+               {/* @ts-ignore */}
               Active members ({teamMember?.active || 0})
             </button>
             <button
@@ -111,12 +114,17 @@ const GroupTeams = () => {
               onClick={() => setStatus("pending")}
               className="btn btn-outline text-blue-600 mr-5 font-medium  border-blue-600 "
             >
+               {/* @ts-ignore */}
               Pending ({teamMember?.pending || 0})
             </button>
           </div>
         </div>
+        
         <div>
+
           <label
+      //@ts-expect-error
+        
           disabled={!isAdmin}
             htmlFor="my_modal_11"
             className="btn btn-outline bg-blue-600 mr-5  text-white border-blue-600 "
@@ -124,6 +132,7 @@ const GroupTeams = () => {
             Add members
           </label>
           <label
+      //@ts-expect-error
           disabled={!isAdmin}
             htmlFor="my_modal_6"
             className="btn btn-outline text-blue-600   border-blue-600 "
@@ -143,7 +152,7 @@ const GroupTeams = () => {
           ))}
         </div>
       </div>
-
+ {/* @ts-ignore */}
       {teamMember?.userResult ? (
         <div className="overflow-x-auto my-12 bg-base-300 p-5 rounded-xl border border-blue-600">
           <table className="table">
@@ -158,6 +167,7 @@ const GroupTeams = () => {
               </tr>
             </thead>
             <tbody>
+               {/* @ts-ignore */}
               {teamMember?.userResult?.map((user, i) => (
                 <tr
                   className="bg-white border border-blue-600 mb-5 rounded-lg"
@@ -189,6 +199,7 @@ const GroupTeams = () => {
                       defaultValue={user?.memberRole}
                       className="select w-full max-w-xs"
                     >
+                       {/* @ts-ignore */}
                       {selectData?.roles?.map((role,i) => (
                         <option key={i} value={role}>{role}</option>
                       ))}
