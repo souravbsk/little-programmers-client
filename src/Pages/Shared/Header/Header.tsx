@@ -5,10 +5,12 @@ import logo from "../../../assets/nav/logo.png";
 import { AuthContext } from "../../../providers/AuthProviders";
 import { ReFetchContext } from "../../../providers/RefetchProvider";
 import { FaBars } from "react-icons/fa";
+import useAdmin from "../../../Hooks/useAdmin";
 const Header = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const {dataRefetch,setDataRefetch} = useContext(ReFetchContext);
   const [isToggle,setToggle] = useState(false);
+  const [isAdmin,setAdmin] = useAdmin();
 
 
   console.log(user);
@@ -43,7 +45,7 @@ const Header = () => {
       </div>
       <div className="flex-none">
         <ul className={`flex md:static z-30 pb-8 md:pb-0 absolute top-24 md:w-full w-1/2 bg-white md:bg-transparent flex-col md:flex-row items-center gap-3 md:gap-6 duration-300 ${isToggle ? "left-0" : "-left-96"}`}>
-          <li className="mx-5">
+          <li className="">
             <Link className="font-medium" to="/availability">
               Availability
             </Link>
@@ -58,8 +60,15 @@ const Header = () => {
               Community
             </Link>
           </li>
+          {
+            user && isAdmin && <li className="mx-5">
+            <Link className="font-medium" to="/manage-user">
+              Manage User
+            </Link>
+          </li>
+          }
           {user && (
-            <li className="mx-5">
+            <li className="">
               <Link className="font-medium" to="/user-dashboard">
                 Dashboard
               </Link>
@@ -68,7 +77,7 @@ const Header = () => {
 
           {user ? (
             <>
-              <li className="mx-5">
+              <li className="">
                 <button onClick={handleLogOut} className="btn">
                   LogOut
                 </button>
@@ -101,7 +110,7 @@ const Header = () => {
               </li>
             </>
           ) : (
-            <li className="mx-5">
+            <li className="">
               <Link className="font-medium" to="/welcomeuser">
                 create user
               </Link>

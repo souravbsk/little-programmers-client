@@ -10,6 +10,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import InvitationReceived from "../Pages/InvitationReceived/InvitationReceived"
 import PrivateRoute from "./PrivateRoute";
+import ManageUser from "../Pages/ManageUser/ManageUser";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         {
           path:"/user-dashboard",
           element:<InvitationReceived></InvitationReceived>
+        },
+        {
+          path:"/manage-user",
+          element:<PrivateRoute><ManageUser></ManageUser></PrivateRoute>
         }
       ]
     },{
